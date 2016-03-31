@@ -24,7 +24,7 @@ class Main extends PluginBase implements Listener{
 		@mkdir($this->getDataFolder());
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 		$this->getServer()->getLogger()->info("[Crates]Enabled");
-		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML,array("crate-open-message" => "You won items!","vote-key" => 0,"ultra-key" => 0,"legendary-key" => 0,"unique-key" => 0,"normal-key" => 0,"items" => array(1,2,3,4,5,6,7,8,9,10),"vote-key-commands" => array("givemoney {player} 1000"),"ultra-key-commands" => array("givemoney {player} 1000"),"legendary-key-commands" => array("givemoney {player} 1000"),"unique-key-commands" => array("givemoney {player} 1000"),"normal-key-commands" => array("givemoney {player} 1000")));
+		$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML,array("crate-open-message" => "You won items!","vote-key" => 0,"ultra-key" => 0,"legendary-key" => 0,"unique-key" => 0,"normal-key" => 0,"vote-key-commands" => array("givemoney {player} 1000"),"ultra-key-commands" => array("givemoney {player} 1000"),"legendary-key-commands" => array("givemoney {player} 1000"),"unique-key-commands" => array("givemoney {player} 1000"),"normal-key-commands" => array("givemoney {player} 1000"),"vote-key-items" => array(1,2,3),"ultra-key-items" => array(1,2,3),"legendary-key-items" => array(1,2,3),"unique-key-items" => array(1,2,3),"normal-key-items" => array(1,2,3)));
 	}
 	
 	public function onInteract(\pocketmine\event\player\PlayerInteractEvent $ev){
@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener{
 		$cfg = $this->config->getAll();
 		if($block->getId() === 54){
 			if($p->getInventory()->getItemInHand()->getId() === $cfg["vote-key"]){
-				foreach($cfg["items"] as $item){
+				foreach($cfg["vote-key-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener{
 				}
 			}
 			if($p->getInventory()->getItemInHand()->getId() === $cfg["ultra-key"]){
-				foreach($cfg["items"] as $item){
+				foreach($cfg["ultra-key-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
@@ -59,7 +59,7 @@ class Main extends PluginBase implements Listener{
 				}
 			}
 			if($p->getInventory()->getItemInHand()->getId() === $cfg["legendary-key"]){
-				foreach($cfg["items"] as $item){
+				foreach($cfg["legendary-key-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
@@ -72,7 +72,7 @@ class Main extends PluginBase implements Listener{
 				}
 			}
 			if($p->getInventory()->getItemInHand()->getId() === $cfg["unique-key"]){
-				foreach($cfg["items"] as $item){
+				foreach($cfg["unique-key-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
@@ -85,7 +85,7 @@ class Main extends PluginBase implements Listener{
 				}
 			}
 			if($p->getInventory()->getItemInHand()->getId() === $cfg["normal-key"]){
-				foreach($cfg["items"] as $item){
+				foreach($cfg["normal-key-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
