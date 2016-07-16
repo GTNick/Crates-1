@@ -32,51 +32,51 @@ class Main extends PluginBase implements Listener{
 		$block = $ev->getBlock();
 		$cfg = $this->config->getAll();
 		if($block->getId() === 54){
-			if($p->getInventory()->getItemInHand()->getId() === $cfg["vote-key"]){
-				foreach($cfg["vote-key-items"] as $item){
+			if($p->getInventory()->getItemInHand()->getId() === $cfg["vote-Crate"]){
+				foreach($cfg["vote-crate-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
-					if($this->config->exists("vote-key-commands")){
-						foreach($cfg["vote-key-commands"] as $c){
+					if($this->config->exists("vote-crate-commands")){
+						foreach($cfg["vote-crate-commands"] as $c){
 				$cmd = str_replace("{player}", $p->getName(), $c);
 				$this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
 				}
 					}
 				}
 			}
-			if($p->getInventory()->getItemInHand()->getId() === $cfg["ultra-key"]){
+			if($p->getInventory()->getItemInHand()->getId() === $cfg["ultra-crate"]){
 				foreach($cfg["ultra-key-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
-					if($this->config->exists("ultra-key-commands")){
-						foreach($cfg["ultra-key-commands"] as $c){
+					if($this->config->exists("ultra-crate-commands")){
+						foreach($cfg["ultra-crate-commands"] as $c){
 				$cmd = str_replace("{player}", $p->getName(), $c);
 				$this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
 				}
 					}
 				}
 			}
-			if($p->getInventory()->getItemInHand()->getId() === $cfg["legendary-key"]){
-				foreach($cfg["legendary-key-items"] as $item){
+			if($p->getInventory()->getItemInHand()->getId() === $cfg["legendary-crate"]){
+				foreach($cfg["legendary-crate-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
-					if($this->config->exists("legendary-key-commands")){
-						foreach($cfg["legendary-key-commands"] as $c){
+					if($this->config->exists("legendary-crate-commands")){
+						foreach($cfg["legendary-crate-commands"] as $c){
 				$cmd = str_replace("{player}", $p->getName(), $c);
 				$this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
 				}
 					}
 				}
 			}
-			if($p->getInventory()->getItemInHand()->getId() === $cfg["unique-key"]){
-				foreach($cfg["unique-key-items"] as $item){
+			if($p->getInventory()->getItemInHand()->getId() === $cfg["unique-crate"]){
+			         foreach($cfg["unique-crate-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
-					if($this->config->exists("unique-key-commands")){
+					if($this->config->exists("unique-crate-commands")){
 						foreach($cfg["unique-key-commands"] as $c){
 				$cmd = str_replace("{player}", $p->getName(), $c);
 				$this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
@@ -84,13 +84,13 @@ class Main extends PluginBase implements Listener{
 					}
 				}
 			}
-			if($p->getInventory()->getItemInHand()->getId() === $cfg["normal-key"]){
-				foreach($cfg["normal-key-items"] as $item){
+			if($p->getInventory()->getItemInHand()->getId() === $cfg["normal-crate"]){
+				foreach($cfg["normal-crate-items"] as $item){
 					$p->getInventory()->addItem(new Item($item,0,mt_rand(1,64)));
 					$ev->setCancelled();
 					$p->sendMessage($cfg["crate-open-message"]);
-					if($this->config->exists("normal-key-commands")){
-						foreach($cfg["normal-key-commands"] as $c){
+					if($this->config->exists("normal-crate-commands")){
+						foreach($cfg["normal-crate-commands"] as $c){
 				$cmd = str_replace("{player}", $p->getName(), $c);
 				$this->getServer()->dispatchCommand(new ConsoleCommandSender(), $cmd);
 				}
